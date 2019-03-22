@@ -92,6 +92,7 @@ public extension UIView {
     @objc public func parentContainerViewController()->UIViewController? {
         
         var matchController = viewContainingController()
+        return matchController
         
         if let finalController = matchController {
             let window = UIApplication.shared.keyWindow!
