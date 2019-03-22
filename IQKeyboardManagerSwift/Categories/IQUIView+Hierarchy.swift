@@ -92,6 +92,18 @@ public extension UIView {
     @objc public func parentContainerViewController()->UIViewController? {
         
         var matchController = viewContainingController()
+        
+        if let finalController = matchController {
+            let window = UIApplication.shared.keyWindow!
+            let frame = finalController.view.convert(finalController.view.frame, to: window)
+            if frame.origin.x == 0.0
+                && frame.origin.y == 0.0
+                && frame.size.width == window.frame.size.width
+                && frame.size.height == window.frame.size.height  {
+                return finalController
+            }
+        }
+        
         var parentContainerViewController : UIViewController?
 
         if var navController = matchController?.navigationController {

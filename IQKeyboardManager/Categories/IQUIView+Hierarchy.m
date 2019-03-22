@@ -92,6 +92,16 @@
 {
     UIViewController *matchController = [self viewContainingController];
     
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    CGRect rect = [matchController.view convertRect:matchController.view.frame toView:window];
+    if (rect.origin.x == 0.0
+        && rect.origin.y == 0.0
+        && rect.size.width == window.frame.size.width
+        && rect.size.height == window.frame.size.height)  {
+        return matchController;
+    }
+    
+    
     UIViewController *parentContainerViewController = nil;
     
     if (matchController.navigationController)
