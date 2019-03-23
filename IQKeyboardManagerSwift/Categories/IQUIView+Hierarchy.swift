@@ -92,8 +92,8 @@ public extension UIView {
     @objc public func parentContainerViewController()->UIViewController? {
         
         var matchController = viewContainingController()
-        return matchController
         
+        //if current viewController is over the entire screen, return it
         if let finalController = matchController {
             let window = UIApplication.shared.keyWindow!
             let frame = finalController.view.convert(finalController.view.frame, to: window)

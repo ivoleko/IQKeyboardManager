@@ -92,6 +92,7 @@
 {
     UIViewController *matchController = [self viewContainingController];
     
+    //if current viewController is over the entire screen, return it
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     CGRect rect = [matchController.view convertRect:matchController.view.frame toView:window];
     if (rect.origin.x == 0.0
